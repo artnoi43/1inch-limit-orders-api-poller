@@ -1,0 +1,5 @@
+chain: bsc
+max_guard: 10
+get:
+  interval: 2
+  limit: 500

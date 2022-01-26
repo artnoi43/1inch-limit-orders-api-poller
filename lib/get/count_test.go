@@ -6,7 +6,7 @@ import (
 	"github.com/artnoi43/1inch-limit-orders-api-poller/enums"
 )
 
-func mockCount() func(enums.Chain) (int, error) {
+func mockCount() getCountFunc {
 	c := 0
 	return func(enums.Chain) (int, error) {
 		c++

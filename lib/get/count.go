@@ -8,6 +8,9 @@ import (
 	"github.com/pkg/errors"
 )
 
+// Dependency injection
+type getCountFunc func(enums.Chain) (int, error)
+
 var count int
 var countSet bool
 
@@ -16,11 +19,11 @@ var countSet bool
 // and set it to the package's global var count and countSet
 func PollCount(
 	chain enums.Chain,
-	getFunc func(enums.Chain) (int, error),
+	f getCountFunc,
 	errChan chan<- error,
 ) {
 	var mut sync.RWMutex
-	if newCount, err := getFunc(chain); err != nil {
+	if newCount, err := f(chain); err != nil {
 		errChan <- errors.Wrap(
 			err, "failed to get count",
 		)

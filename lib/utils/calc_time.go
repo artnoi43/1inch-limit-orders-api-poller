@@ -16,7 +16,5 @@ func CalcAvgTime(durations []time.Duration) {
 			"Average GET time: %v\n",
 			time.Duration(int(sum)/len(durations)),
 		)
-	} else {
-		return
 	}
 }

@@ -11,13 +11,9 @@ import (
 func (w *worker) Poll() {
 	fmt.Printf("%-6d Spawn (%s) \n", w.ID(), w.Chain())
 	// Wait for count to be set by PollCount()
-	for {
-		if !countSet {
-			fmt.Printf("%-6d Count not set\n", w.ID())
-			time.Sleep(1 * time.Second)
-		} else {
-			break
-		}
+	for !countSet {
+		fmt.Printf("%-6d Count not set\n", w.ID())
+		time.Sleep(1 * time.Second)
 	}
 	var wg sync.WaitGroup
 	pages := getPages(count, w.limit)

@@ -8,8 +8,8 @@ import (
 
 type Config struct {
 	Chain    enums.Chain `mapstructure:"chain"`
-	Get      get.Config  `mapstructure:"get"`
 	MaxGuard int         `mapstructure:"max_guard"`
+	Get      get.Config  `mapstructure:"get"`
 }
 
 func Load() (*Config, error) {

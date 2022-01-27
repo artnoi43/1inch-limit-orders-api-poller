@@ -7,21 +7,9 @@ import (
 )
 
 func getPath(chain enums.Chain, sw string) string {
-	id, ok := enums.ChainMap[chain]
-	if !ok {
-		fmt.Println("Invalid chain", chain)
-		// panic("invalid chain")
-	}
-	var s string
-	switch sw {
-	case "all":
-		s = fmt.Sprintf(enums.PATH_ALL, id)
-	case "count":
-		s = fmt.Sprintf(enums.PATH_COUNT, id)
-	default:
-		panic("unexpected switch")
-	}
-	return s
+	return fmt.Sprintf(
+		enums.EndpointMap[sw], enums.ChainMap[chain],
+	)
 }
 
 // Page returns the number of pages required by pagination

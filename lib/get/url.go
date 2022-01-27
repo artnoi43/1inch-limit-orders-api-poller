@@ -8,7 +8,7 @@ import (
 
 func getPath(chain enums.Chain, sw string) string {
 	return fmt.Sprintf(
-		enums.EndpointMap[sw], enums.ChainMap[chain],
+		enums.EndpointMap[sw], enums.ChainIDMap[chain],
 	)
 }
 

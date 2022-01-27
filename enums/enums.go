@@ -13,7 +13,7 @@ const (
 	ChainPolygon  = "polygon"
 )
 
-var ChainMap = map[Chain]ChainId{
+var ChainIDMap = map[Chain]ChainId{
 	ChainEthereum: 1,
 	ChainBsc:      56,
 	ChainPolygon:  137,
